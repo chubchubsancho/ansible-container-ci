@@ -1,0 +1,5 @@
+# These are the python requirements for your Ansible Container builder.
+# You do not need to include Ansible itself in this file.
+ansible
+docker
+docker-pycreds
