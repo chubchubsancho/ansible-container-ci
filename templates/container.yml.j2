@@ -5,7 +5,7 @@ settings:
   
   # Set the name of the project. Defaults to basename of the project directory.
   # For built services, concatenated with service name to form the built image name.
-  project_name: "{{ distro }}"
+  project_name: "ansible-ci-base-image"
 
   conductor:
     # The Conductor container does the heavy lifting, and provides a portable
@@ -59,8 +59,16 @@ services:
     environment:
       USER: root
     command: ["{{ command }}"]
+    volumes: 
+      - /sys/fs/cgroup/:/sys/fs/cgroup:ro
+    roles:
+      - role: container_systemd
 
-registries: {}
+registries:
+  docker:
+    url: https://docker.io
+    namespace: chubchubsancho
+    repository_prefix: ''
   # Add optional registries used for deployment. For example:
   #  google:
   #    url: https://gcr.io
