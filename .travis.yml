@@ -21,7 +21,7 @@ script:
   - | 
     ansible localhost -m template \
                       -a "src=container.yml.j2 dest=container.yml" \
-                      -e "{ "distro": "${distro}", "version": "${version}", "command": "/init/sbin" }"
+                      -e "{ "distro": "${distro}", "version": "${version}", "command": "/sbin/init" }"
   - ansible-container build -- -v
 
 deploy:
