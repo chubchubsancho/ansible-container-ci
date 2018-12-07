@@ -1,0 +1,27 @@
+---
+
+sudo: required
+language: python
+services:
+  - docker
+
+matrix:
+  fast_finish: true
+  include:
+    - env: distro=debian version=9 tags="9 stretch latest"
+
+install:
+  - pip install ansible-container
+  - pip install -r pip-requirements.txt
+
+script:
+  - | 
+    ansible localhost -m template \
+                      -a "src=container.yml.j2 dest=container.yml" \
+                      -e "{ "distro": "${distro}", "version": "${version}", "command": "/init/sbin" }"
+  - ansible-container build -- -v
+
+notifications:
+  email:
+    on_failure: change
+    on_success: never
