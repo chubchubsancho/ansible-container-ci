@@ -1,5 +1,2 @@
 # These are the python requirements for your Ansible Container builder.
 # You do not need to include Ansible itself in this file.
-ansible
-docker==2.7.0
-docker-pycreds==0.2.3
