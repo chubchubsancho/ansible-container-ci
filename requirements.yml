@@ -6,3 +6,6 @@
 - src: chubchubsancho.container_systemd
   version: master
   name: container_systemd
+- src: chubchubsancho.container_base
+  version: master
+  name: container_base

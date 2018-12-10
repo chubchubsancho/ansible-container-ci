@@ -63,6 +63,7 @@ services:
       - /sys/fs/cgroup/:/sys/fs/cgroup:ro
     roles:
       - role: container_systemd
+      - role: container_base
 
 registries:
   docker:
