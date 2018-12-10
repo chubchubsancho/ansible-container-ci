@@ -9,6 +9,9 @@ matrix:
   fast_finish: true
   include:
     - env: distro=debian version=9 tags="9 stretch latest"
+    - env: distro=debian version=8 tags="8 jessie"
+    - env: distro=centos version=7 tags="7 latest"
+    - env: distro=centos version=6 tags="6"
     - env: distro=ubuntu version=bionic tags="18.04 bionic latest"
   allow_failures:
     - env: distro=ubuntu version=bionic tags="18.04 bionic latest"
